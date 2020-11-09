@@ -1,0 +1,24 @@
+.imgWith{
+    width:70%;
+}
+.uk-margin-top{
+  margin: 20px;
+}
+.margin{
+    padding: 20px;
+}
+.textBanner{
+    font-size: 28px;
+    font-weight: 620;
+    color: #bc076d;
+}
+.uk-card-title{
+margin-top: 20px;
+}
+.responsiva {width: 100%; }
+.responsiva  h3 { font-size: clamp(0.8em, 0.8em + 0.8vw, 1em); float: center;}
+@media only screen and (min-width: 350px){
+  .pa{
+    padding-block-end: 60px;
+  }
+}

@@ -1,0 +1,46 @@
+
+  <app-carregar *ngIf="carregando" ></app-carregar>
+<form [formGroup]="form" class="uk-form-stacked">
+
+  <div class="uk-margin">
+    <!--OBS: adicionar hidden no input abaixo para oculta campo-->
+    <input hidden class="uk-input uk-form-default"  formControlName="IdEmpresa" type="text"
+      placeholder="Id do Programa de fidelidade"
+      >
+  </div>
+
+  <div class="uk-margin">
+    <label class="uk-form-label" >Valor minimo para ganhar pontos?</label>
+    <div class="uk-form-controls">
+      
+      <input class="uk-input uk-form-default uk-padding" mask="separator" thousandSeparator="." 
+        formControlName="Reais" type="text" placeholder="R$ Exemplo:R$ 1=1 ponto"
+        [ngClass]="{'uk-form-danger': (!form.controls.Reais.valid && !form.controls.Reais.pristine) }">
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-stacked-text">Equivalem a quantos pontos?</label>
+    <div class="uk-form-controls">
+      <input class="uk-input uk-form-default uk-padding"  formControlName="PontosFidelidade" type="text"
+        placeholder="Digite a quantidade de pontos"
+        [ngClass]="{'uk-form-danger': (!form.controls.PontosFidelidade.valid && !form.controls.PontosFidelidade.pristine) }">
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-stacked-text">Tempo de expiração de pontos em Dias?</label>
+    <div class="uk-form-controls">
+      <input class="uk-input uk-form-default uk-padding"  type="text" formControlName="ValidadePontos"
+        [ngClass]="{'uk-form-danger': (!form.controls.ValidadePontos.valid && !form.controls.ValidadePontos.pristine)}"
+        placeholder="Exemplo: 365">
+    </div>
+    <!--span *ngIf="this.GetRule() == null" formControlName="Validade"></span-->
+  </div>
+  <!--Button-->
+
+  <div class="uk-text-right">
+    <button class="uk-button BotaoSucesso"  [disabled]="form.invalid" (click)="submit()"><i uk-icon="icon: check; ratio: 1.1"></i>Salvar</button>
+  </div>
+
+</form>

@@ -1,0 +1,117 @@
+    <div>
+      <form [formGroup]="form" class="uk-form-stacked ">
+        <div class="uk-grid uk-grid-large uk-child-width-expand@s " uk-grid>
+
+          <div class="uk-width-1-4@s">
+            <label class="uk-form-label" for="form-stacked-select"  style="font-weight: 500;">Definar a Automação</label>
+            <div class="uk-form-controls" >
+              <select  id="form-stacked-select" class="uk-select" formControlName="tipoAutomacao"  (change)="selectInput($event)">
+                <option></option>
+                <option value="Aniversariante">Especial de aniversário</option>
+                <option value="Dia da semana">Em um dia da semana</option>
+                <option value="Trinta dias" >Não compram a 1 mês</option>
+                <option value="Ultima fidelizacao" >Apos ultima fidelização</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="uk-width-1-4@s"  *ngIf="isdDisableSelected">
+            <label class="uk-form-label" for="form-stacked-select"  style="font-weight: 500;">Grupo de Perfil</label>
+            <div class="uk-form-controls">
+              <select class="uk-select" formControlName="segmentacao"  id="form-stacked-select">
+                <option></option>
+                <option value="Novo">Novo</option>
+                <option value="Vip">Vip</option>
+                <option value="Eventual">Eventual</option>
+                <option value="Frequente">Frequente</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="uk-width-1-4@s"  *ngIf="isdDisableSelected">
+            <label class="uk-form-label" for="form-stacked-select"  style="font-weight: 500;">perfis Customizados</label>
+            <div class="uk-form-controls">
+              <select class="uk-select" id="form-stacked-select" formControlName="segCustomizado" >
+                <option></option>
+                <option value="Ativo">Cliente Ativo</option>
+                <option value="Ouro">Cliente Ouro</option>
+                <option value="Prata">Cliente Prata</option>
+                <option value="Bronze">Cliente Bronze</option>
+                <!-- <option value="Em Risco">Em Risco</option> -->
+                <!-- <option value="Inativo">Inativo</option> -->
+              </select>
+            </div>
+          </div>
+
+          </div>
+
+        <br>
+
+        <div  class="uk-width-1-5@s" *ngIf="isAniversarioSelected" >
+          <label class="uk-form-label" for="form-stacked-text"  style="font-weight: 500;">Dias Antes do Aniversário  <a uk-tooltip="Crie uma oferta para que seu cliente venha celebrar o aniversário com você." uk-icon="icon: info; ratio: 1"></a></label>
+          <div class="uk-form-controls">
+            <input class="uk-input "  id="form-stacked-text" type="number" formControlName="diasAntesAniversario" 
+              placeholder="Exemplo: 7">
+          </div>
+        </div>
+
+        <div class="uk-width-1-5@s" *ngIf="isDiaSemanaSelected">
+          <label class="uk-form-label" for="form-stacked-text"  style="font-weight: 500;">Dia da Semana  <a uk-tooltip="Crie uma campanha pra se enviada em um dia da semana." uk-icon="icon: info; ratio: 1"></a></label>
+          <div class="uk-form-controls">
+            <select class="uk-select" id="form-stacked-select" formControlName="tempoPorDiaDaSemana" >
+              <option>Selecione uma opção</option>
+              <option value="Segunda-feira">Segunda-feira</option>
+              <option value="Terça-feira">Terça-feira</option>
+              <option value="Quarta-feira">Quarta-feira</option>
+              <option value="Quinta-feira">Quinta-feira</option>
+              <option value="Sexta-feira">Sexta-feira</option>
+              <option value="Sabado">Sábado</option>
+              <option value="Domingo">Domingo</option>
+            </select>
+          </div>
+        </div>
+
+        <div  class="uk-width-1-5@s" *ngIf="isUltimaFidelizacaoSelected" >
+          <label class="uk-form-label" for="form-stacked-text"  style="font-weight: 500;"> Quantos dias? <a uk-tooltip="Determine a quantidade de dias para enviar uma mensagem.." uk-icon="icon: info; ratio: 1"></a></label>
+          <div class="uk-form-controls">
+            <input class="uk-input "  id="form-stacked-text" type="number" formControlName="tempoPorDia" 
+
+              placeholder="exemplo: 30 ">
+          </div>
+        </div>
+
+     
+
+        <div class="uk-alert-warning" uk-alert style=" box-shadow: 0px 2px 2px 0px rgba(250, 152, 5, 0.603);">
+          <a class="uk-alert-close" uk-close></a>
+          <p><i class="fas fa-exclamation-triangle"></i> Evite utilizar acentos e caracteres especiais na mensagem abaixo. Utilize a TAG  %nome% será substituida pelo nome do cliente durante o envio  </p>
+        </div>
+    
+        <div class="uk-margin">
+          <label class="uk-form-label" for="form-stacked-text" style="font-weight: 500;">Qual mensagem deseja
+            enviar?</label>
+          <textarea class="uk-textarea" rows="5" formControlName="conteudo" id="campoSMS"  maxlength="150"
+            placeholder="Oi %nome% Quer aproveitar um desconto de 10%? Apresente este SMS em nossa loja"></textarea>
+            <p id="count" ></p> 
+        
+        </div>
+    
+                <div class="uk-text-left  uk-margin">
+                  <a class="uk-button buttonSMS" href="https://pontuaae.com/?page_id=483" target="_blank"> <i uk-icon="icon: commenting; ratio: 1.1"> </i> Modelos Prontos</a>
+    
+                  <a class="uk-margin-left" uk-tooltip="😃 Mensagem para clientes, Agradecimento, Datas especiais e mais; Digite sua mensagem com até 150 caracteres."
+                    uk-icon="icon: info; ratio: 1.4"></a>
+                
+                  </div>
+             
+        <!-- <div class="uk-text-left">
+          <button class="uk-button buttonSMS" routerLink="/Message/Index"> <i uk-icon="icon: commenting; ratio: 1.1">
+            </i> Mensagem Pronta</button>
+        </div> -->
+        <hr>
+        <div class="uk-text-right"> 
+            <button class="uk-button BotaoSucesso uk-border-rounded" (click)="submit()"><i
+                uk-icon="icon: check; ratio: 1.1"></i>Salvar</button>
+        </div>        
+      </form>
+    </div>

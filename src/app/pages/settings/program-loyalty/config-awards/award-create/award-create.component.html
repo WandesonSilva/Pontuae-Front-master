@@ -1,0 +1,58 @@
+
+  <!-- <app-carregar *ngIf="carregando" ></app-carregar> -->
+  <form [formGroup]="form" class="uk-form-stacked">
+  
+    <div class="uk-margin">
+      <!--OBS: adicionar hidden no input abaixo para oculta campo-->
+      <input hidden class="uk-input uk-form-default"  formControlName="idEmpresa" type="number"
+        placeholder="Id do Programa de fidelidade"
+        >
+    </div>
+
+
+    <div class="uk-alert-primary" uk-alert>
+      <a class="uk-alert-close" uk-close></a>
+      <p>Ofereça prêmios em troca de pontos! </p>
+  </div>
+  
+    <div class="uk-margin">
+      <label class="uk-form-label" style="font-weight: 500;" >Nome do prêmio</label>
+      <div class="uk-form-controls">
+        
+        <input class="uk-input uk-form-default uk-padding" 
+          formControlName="nome" type="text" placeholder="Informe o Nome do prêmio"
+          [ngClass]="{'uk-form-danger': (!form.controls.nome.valid && !form.controls.nome.pristine) }">
+      </div>
+    </div>
+  
+    <div class="uk-margin">
+      <label class="uk-form-label" for="form-stacked-text" style="font-weight: 500;">Descricao</label>
+      <div class="uk-form-controls">
+        <input class="uk-input uk-form-default uk-padding"  formControlName="descricao" type="text"
+          placeholder="Descreva sobre o prêmio"
+          [ngClass]="{'uk-form-danger': (!form.controls.descricao.valid && !form.controls.descricao.pristine) }">
+      </div>
+    </div>
+
+   
+
+
+
+  
+    <div class="uk-margin">
+      <label class="uk-form-label" for="form-stacked-text" style="font-weight: 500;">Equivalem a quantos pontos</label>
+      <div class="uk-form-controls">
+        <input class="uk-input uk-form-default uk-padding"  type="number" formControlName="qtdPontos"
+          [ngClass]="{'uk-form-danger': (!form.controls.qtdPontos.valid && !form.controls.qtdPontos.pristine)}"
+          placeholder="Pontos necessários para resgate do prêmio">
+      </div>
+      <!--span *ngIf="this.GetRule() == null" formControlName="Validade"></span-->
+    </div>
+    <!--Button-->
+  
+    <div class="uk-text-right">
+      <button class="uk-button BotaoSucesso uk-border-rounded" [disabled]="form.invalid"  (click)="submit()"><i i uk-icon="icon: check; ratio: 1.1"></i>Salvar</button> 
+    </div>
+  
+  </form>
+  

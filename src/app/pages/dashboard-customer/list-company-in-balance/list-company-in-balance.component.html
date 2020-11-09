@@ -1,0 +1,20 @@
+<div class="uk-card uk-card-body uk-card-default uk-card-body uk-width-1-1@m ">
+  <table 
+  class="uk-table uk-table-hove uk-table-divider"  >
+    <thead>
+      <tr>
+        <th class="">Empresa</th>
+        <th class="uk-width-small">Saldo de Pontos</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let Balance of Balances">
+      <tr>
+      <td>{{ Balance.nomeFantasia }}</td>
+        <td class="uk-text-truncate">{{Balance.saldo}}</td>
+      </tr>
+      
+     
+      
+    </tbody>
+  </table>
+</div>

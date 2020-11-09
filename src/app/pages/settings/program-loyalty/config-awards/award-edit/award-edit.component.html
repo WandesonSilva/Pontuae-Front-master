@@ -1,0 +1,53 @@
+
+   <!-- <app-carregar *ngIf="carregando" ></app-carregar>  -->
+  <form [formGroup]="form" class="uk-form-stacked">
+  
+    <div class="uk-margin">
+      <!--OBS: adicionar hidden no input abaixo para oculta campo-->
+      <!-- <input hidden class="uk-input uk-form-default"  formControlName="id" type="number"
+        placeholder="Id do Programa de fidelidade"
+        > -->
+    </div> 
+
+
+    <div class="uk-alert-primary" uk-alert>
+      <a class="uk-alert-close" uk-close></a>
+      <p>Ofereça prêmios em troca de pontos! </p>
+  </div>
+  
+    <div class="uk-margin">
+      <label class="uk-form-label" style="font-weight: 500;" >Nome do prêmio</label>
+      <div class="uk-form-controls">
+        
+        <input class="uk-input uk-form-default uk-padding" 
+        formControlName="title" type="text" placeholder="Informe o Nome do prêmio"
+          >
+      </div>
+    </div>
+  
+    <div class="uk-margin">
+      <label class="uk-form-label" for="form-stacked-text" style="font-weight: 500;">Texto</label>
+      <div class="uk-form-controls">
+        <input class="uk-input uk-form-default uk-padding"  formControlName="texto" type="text"
+          placeholder="Descreva sobre o prêmio"
+          >
+      </div>
+    </div>
+  
+    <div class="uk-margin">
+      <label class="uk-form-label" for="form-stacked-text" style="font-weight: 500;">Equivalem a quantos pontos</label>
+      <div class="uk-form-controls">
+        <input class="uk-input uk-form-default uk-padding"  type="number" formControlName="qtdPontos"
+          
+          placeholder="Pontos necessários para resgate do prêmio">
+      </div>
+      <!--span *ngIf="this.GetRule() == null" formControlName="Validade"></span-->
+    </div>
+    <!--Button-->
+  
+    <div class="uk-text-right">
+      <button class="uk-button BotaoSucesso uk-border-rounded" (click)="submit()"><i i uk-icon="icon: check; ratio: 1.1"></i>Salvar</button> 
+    </div>
+  
+  </form>
+  
